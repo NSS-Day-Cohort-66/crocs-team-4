@@ -104,33 +104,33 @@ const crocCollection = [
 ]
 
 const crocDetails = (shoe) => {
-    return `${shoe.color} ${shoe.title} ${shoe.type}`
+    return `${shoe.color} ${shoe.name} ${shoe.style}`
 }
 
-const getFlips = (crocs) => {
+const getFlips = () => {
     let flips = ''
     for (const shoe of crocs) {
         if (shoe.type === 'Flip') {
             flips += `\t${shoe.name}\n`
         }
     }
+    return flips;
 }
 
 const getPuffBoots = (crocs) => {
     let puffs = ''
-    for (const shoe of crocs) {
+    for (const croc of crocs) {
         if (croc.type === 'Puff Boot') {
             puffs += `\t${croc.name}\n`
         }
     }
-    return puffs
 }
 
 console.log('ALL CROCS:')
 console.log('---------------------------------')
 
 for (const croc of crocCollection) {
-    console.log(`\t${crocDetails()}`)
+    console.log(`\t${crocDetails(croc)}`)
 }
 
 console.log('')
@@ -139,7 +139,7 @@ console.log('STYLES:')
 console.log('---------------------------------')
 
 console.log('FLIP CROCS:')
-console.log(getFlips(crocs))
+console.log(getFlips(crocCollection))
 
 console.log('PUFF BOOTS:')
 console.log(getPuffBoots(crocCollection))
